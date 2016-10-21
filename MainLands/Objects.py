@@ -1,6 +1,19 @@
 __author__ = 'claudio'
 
 
+class NodeInfoOut:
+
+    def __init__(self):
+        self.__lat_monitor__ = 0
+        self.__long_monitor__ = 0
+        self.__monitor_name__ = 0
+        self.__lat_monitorado__ = 0
+        self.__long_monitorado__ = 0
+        self.__monitorado_name__ = 0
+        self.__date_hour__ = 0
+        self.__value__ = 0
+
+
 class NodeInfo:
     __elem_dict__ = {"_id": 0,
                      "node_name": 1,
