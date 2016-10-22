@@ -1,9 +1,10 @@
 from _hashlib import new
 
 __author__ = 'claudio'
-import glob,os,sys
+import glob, os, sys
 from pathlib import Path
 from Objects import NodeInfo
+from Objects import NodeInfoOut
 
 
 class TransformEngine:
@@ -60,10 +61,19 @@ class TransformEngine:
         file_list = glob.glob("*.txt")
         if len(file_list) == 0:
             print(str.format("Has no files on --> {0}", self.__input_folder__))
-        for file in file_list:
-            self.__process_file__(file)
 
-    def __process_file__(self, file):
+        final_file_name = str.format("{0}/{1}", self.__main_folder__,"final_file.csv")
+        csv_file_name = final_file_name #os.path.join(self.__main_folder__, final_file_name)
+        csv_final_file = open(csv_file_name, "w+")
+
+        header = "lat_monitor,long_monitor,monitor_name,lat_monitorado,long_monitorado,monitorado_name,date_hour,value"
+        csv_final_file.write(header + "\n")
+
+        for file in file_list:
+            self.__process_file__(file, csv_final_file)
+        csv_final_file.close()
+
+    def __process_file__(self, file, file_writer):
         #os.path.join combine paths
         full_file_path = os.path.join(self.__input_folder__, file)
         new_full_file_path = os.path.join(self.__work_folder__, file)
@@ -85,12 +95,26 @@ class TransformEngine:
                     """
                     TODO: create each output object and write them on CSV file
                     """
+                    for i, value in enumerate(metrics_info):
 
+                        if value == ".":
+                            value = "0"
+                        date_hour = str.format("{0} {1}:00", formatted_date, i)
+                        lat_monitor, long_monitor = monitor_info.get_lat_long()
+
+                        lat_monitorado, long_monitorado = monitorado_info.get_lat_long()
+
+                        out_object = NodeInfoOut(lat_monitor, long_monitor,
+                                                 monitor, lat_monitorado, long_monitorado,
+                                                 monitorado, date_hour, value)
+                        line = out_object.print_info()
+                        file_writer.write(line + "\n")
                 # print(str.format("Monitor:{0}\nMonitorado:{1}", monitor, monitorado))
                 # print(metrics_info)
                 # print(line)
-        except:
+        except Exception:
             print("Deu Ruim")
+            # So Lazy, has to be removed
             os.rename(new_full_file_path, full_file_path)
             sys.exit(2)
 
@@ -103,5 +127,5 @@ class TransformEngine:
         elms = file_name.split("-")
         year, month, day = elms[len(elms) - 3:len(elms)]
         formatted_date = str.format("{0}-{1}-{2}", year, month, day)
-        print(formatted_date)
+        # print(formatted_date)
         return formatted_date

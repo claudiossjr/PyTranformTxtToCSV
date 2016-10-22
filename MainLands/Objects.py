@@ -3,15 +3,27 @@ __author__ = 'claudio'
 
 class NodeInfoOut:
 
-    def __init__(self):
-        self.__lat_monitor__ = 0
-        self.__long_monitor__ = 0
-        self.__monitor_name__ = 0
-        self.__lat_monitorado__ = 0
-        self.__long_monitorado__ = 0
-        self.__monitorado_name__ = 0
-        self.__date_hour__ = 0
-        self.__value__ = 0
+    def __init__(self, lat_monitor, long_monitor, monitor_name, lat_monitorado, long_monitorado, monitorado_name, date_hour, value):
+        self.__lat_monitor__ = lat_monitor
+        self.__long_monitor__ = long_monitor
+        self.__monitor_name__ = monitor_name
+        self.__lat_monitorado__ = lat_monitorado
+        self.__long_monitorado__ = long_monitorado
+        self.__monitorado_name__ = monitorado_name
+        self.__date_hour__ = date_hour
+        self.__value__ = value
+
+    def print_info(self):
+        information = str.format("{0},{1},{2},{3},{4},{5},{6},{7}", self.__lat_monitor__,
+                                                                     self.__long_monitor__,
+                                                                     self.__monitor_name__,
+                                                                     self.__lat_monitorado__,
+                                                                     self.__long_monitorado__,
+                                                                     self.__monitorado_name__,
+                                                                     self.__date_hour__,
+                                                                     self.__value__,)
+
+        return information
 
 
 class NodeInfo:
@@ -49,6 +61,9 @@ class NodeInfo:
                                  self.__project_type__)
 
         print(information)
+
+    def get_lat_long(self):
+        return self.__latitude__, self.__longitude__
 
     def get_source_name(self):
         return self.__node_name__
