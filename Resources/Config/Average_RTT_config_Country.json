@@ -1,0 +1,8 @@
+{
+	"Metrics":"average_rtt",
+	"InputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Out",
+	"OutputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Monthly/Out",
+	"ErrorFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Monthly/Err",
+	"WorkFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Monthly/Work",
+	"DetailsFile":"F:/Projects/PyTranformTxtToCSV/Resources/Config/Average_RTT_config_Monthly.json"
+}

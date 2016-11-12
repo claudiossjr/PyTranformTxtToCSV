@@ -5,8 +5,7 @@ Created on 11 de nov de 2016
 '''
 import sys, json, glob, os
 from Help.OptionsLoad import ConsoleHelper
-from fileinput import filename
-from test.datetimetester import DAY
+
 
 class NormalizeFile(object):
     '''

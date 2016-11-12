@@ -6,7 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
-Resources/
+Resources/Daily/
+Resources/Monthly/
+Resources/Country/
 
 # Distribution / packaging
 .Python

@@ -1,0 +1,7 @@
+{
+	"Metrics":"average_rtt",
+	"InputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/In",
+	"OutputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Out",
+	"ErrorFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Err",
+	"WorkFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Work"
+}

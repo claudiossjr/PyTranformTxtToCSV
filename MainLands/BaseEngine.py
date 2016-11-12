@@ -1,6 +1,5 @@
-from _hashlib import new
-
 __author__ = 'claudio'
+
 import glob, os, sys
 from pathlib import Path
 from Objects import NodeInfo
