@@ -83,8 +83,16 @@ class NormalizeFile(object):
         
         try:
             
-            for line in file_content:
-
+#             for line in file_content:
+            line = file_content.readline();
+            while line:
+                
+                try:
+                    line = file_content.readline()
+                except BaseException:
+                    continue
+                
+                
                 line_elems = str(line).split(" ")
                 
                 if len(line_elems) < 28:
@@ -106,6 +114,8 @@ class NormalizeFile(object):
             if len(full_content_dictionary) <= 0:
                 err_file_path = os.path.join(self.configuration["ErrorFolder"], filePath)
                 os.rename(work_file_path, err_file_path)
+            else:
+                print(len(full_content_dictionary.keys()))
             return full_content_dictionary
         
         print(len(full_content_dictionary.keys()))
