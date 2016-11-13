@@ -25,7 +25,9 @@ class NormalizeFile(object):
         
     def run (self):
         os.chdir(self.configuration["InputFolder"])
-        files_list = glob.glob("*.txt")
+        metric = self.configuration["Metrics"]
+        files_search_key = str.format("{0}-*.txt",metric)
+        files_list = glob.glob(files_search_key)
         
         for filePath in files_list:
             fileNameElems = str(filePath).replace(".txt", "").split("-")
