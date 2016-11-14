@@ -39,20 +39,21 @@ class FillDatabase(object):
             old_file_name = os.path.join(self.configuration["InputFolder"], fileName)
             new_file_name = os.path.join(self.configuration["WorkFolder"], fileName)
             os.rename(old_file_name, new_file_name)
-            
+            print(fileName)
             file_reader = open(new_file_name, "r")
             for line in file_reader:
-                node_name = line[0]
-                node_ip = line[1]
-                lat = line[2]
-                lng = line[3]
-                country = line[4]
-                region = line[5]
-                site_name = line[6]
-                metric_value = line[7]
+                elems = line.split(",")
+                node_name = elems[0]
+                node_ip = elems[1]
+                lat = elems[2]
+                lng = elems[3]
+                country = elems[4]
+                region = elems[5]
+                site_name = elems[6]
+                metric_value = elems[7]
                 metric = self.configuration["Metrics"]
                 
-                node_id = self.db.get_metric_id(node_name)
+                node_id = self.db.get_node_id(node_name)
                 metric_id = self.db.get_metric_id(metric)
                 
                 if node_id == -1:
@@ -67,7 +68,7 @@ class FillDatabase(object):
                 
                 self.db.insert_has_metric(metric_id, node_id, year, month, metric_value)
                 
-            break
+            
         
 if __name__ == '__main__' :
     args = sys.argv[1:]

@@ -9,6 +9,7 @@ __pycache__/
 Resources/Daily/
 Resources/Monthly/
 Resources/Country/
+Resources/Database/
 
 # Distribution / packaging
 .Python

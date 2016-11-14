@@ -6,7 +6,6 @@ Created on 14 de nov de 2016
 
 import pymysql, sys, json
 from Help.OptionsLoad import ConsoleHelper 
-from cryptography.hazmat.primitives.asymmetric import AsymmetricSignatureContext
 
 class MySQLDAO(object):
     '''
@@ -106,7 +105,7 @@ class MySQLDAO(object):
                         {1}, \
                         {2}, \
                         {3}, \
-                        {4})", idMetrics, idNode, value, year ,month )
+                        {4})", int(idMetrics), int(idNode), float(value), int(year), int(month) )
         cur.execute(query)
         
 
