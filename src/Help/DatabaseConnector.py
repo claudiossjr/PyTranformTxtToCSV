@@ -116,7 +116,10 @@ class MySQLDAO(object):
             self.con.rollback()                   
         
         cur.close()
-        
+    
+    def close_connection(self):
+        self.con.close()
+    
 if __name__ == '__main__':
     args = sys.argv[1:]
     console_helper = ConsoleHelper()
