@@ -1,0 +1,14 @@
+{
+	"Metrics":"average_rtt",
+	"InputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Monthly/Out",
+	"OutputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Country/Out",
+	"ErrorFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Country/Err",
+	"WorkFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Country/Work",
+	"NodeDetails":"F:/Projects/PyTranformTxtToCSV/Resources/NODE-DETAILS.csv",
+	"ConfigDatabase":{
+		"Host":"192.168.0.40",
+		"UserName":"root",
+		"Password":"423123dinhU@",
+		"DBName":"PingERVis"
+	}
+}
