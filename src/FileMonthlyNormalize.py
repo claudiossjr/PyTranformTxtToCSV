@@ -26,7 +26,7 @@ class MonthlyNormalize:
             for month in range(1, 13):
                 if month < 10:
                     month = str.format("0{0}", month)
-                search_file_key = str.format("{0}-*-{1}-{2}-*.txt", metric, year, month)
+                search_file_key = str.format("{0}-{1}-{2}-*.txt", metric, year, month)
                 files_list = glob.glob(search_file_key)
                 
                 if(len(files_list) == 0):

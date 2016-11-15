@@ -58,22 +58,28 @@ class NormalizeFile(object):
             
             for key in dictionary.keys():
                 list_values = dictionary[key]
-                sumer = self.get_sum(list_values)
-                avr = sumer/len(list_values)
+                sumer,count_elems = self.get_sum(list_values)
+                if count_elems == 0:
+                    continue
+                avr = sumer/count_elems
                 file_writer.write(str.format("{0},{1}\n", key, avr))
                 
             file_writer.close()
             
     def get_sum(self, list_values):
-        sum_value = 0
+        sum_value = -1
+        count_elems = 0
         for value in list_values:
             if value != '.':
                 try:
                     number = float(value)
                     sum_value += number
+                    count_elems += 1
                 except BaseException:
                     continue
-        return sum_value
+        if sum_value != -1:
+            return sum_value + 1, count_elems
+        return sum_value, count_elems
     
     def work_on_file(self, filePath):
         work_file_path = os.path.join(self.configuration["WorkFolder"], filePath)

@@ -5,7 +5,7 @@
 	"ErrorFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Database/Err",
 	"WorkFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Database/Work",
 	"ConfigDatabase":{
-		"Host":"192.168.0.41",
+		"Host":"192.168.0.10",
 		"UserName":"root",
 		"Password":"423123dinhU@",
 		"DBName":"PingERVis"
