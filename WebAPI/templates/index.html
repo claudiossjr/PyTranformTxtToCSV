@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+		
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-selector.min.css') }}">
+		
+		
+
+		<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+		
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		
+	</head>
+	<body style="background-color:#333">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-4">
+					<div class="search-box map show-search-box">
+						<form class="form-map form-search" id="form-map" role="form">
+							<h2>Search Country Information</h2>
+							<div class="form-group">
+								<input type="text" class="form-control" id="search-box-property-id" placeholder="PropertyID">
+							</div>
+							<div class="form-group">
+								<select name="type">
+									<option value>Medida</option>
+									<option value="1">SS</option>
+									<option value="2">DD</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="search-box-property-id" placeholder="PropertyID">
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-default">Search Now</button>
+							</div>
+						</form>		
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
