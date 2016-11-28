@@ -1,11 +1,14 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, render_template
 from Queries import queryManager
 import json
 app = Flask(__name__)
 
 @app.route('/')
 def main_page():
-    return redirect(url_for('how_to_use'))
+    try:
+        return render_template('index.html')
+    except Exception as e:
+        return str(e)
 
 @app.route('/country', methods=['GET', 'POST'])
 def country_information():
@@ -40,4 +43,6 @@ def how_to_use():
     return "Explanation"
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=8080)
+
+    app.run(host="0.0.0.0", port=8080)
+

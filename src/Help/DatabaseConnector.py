@@ -46,6 +46,27 @@ class MySQLDAO(object):
             return elem[0]
         return -1
     
+    def insert_human_index(self, country_name, year, human_index, value ):
+        cur = self.con.cursor()
+        query = str.format("INSERT INTO HumanIndex \
+                                (CountryName, \
+                                Year, \
+                                HumanIndex, \
+                                value) \
+                                VALUES \
+                                ('{0}', \
+                                {1}, \
+                                '{2}', \
+                                {3})", country_name, year, human_index, value)
+        cur.execute(query)
+        
+        try:
+            self.con.commit()
+        except:
+            self.con.rollback()                   
+        
+        cur.close()       
+    
     def insert_node(self, node_name, node_ip, lat, lng, country, region, site_name):
         cur = self.con.cursor()
         query = str.format("INSERT INTO Node \
