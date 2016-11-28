@@ -1,7 +1,7 @@
 {
 	"Metrics":"average_rtt",
-	"InputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Daily/In",
-	"OutputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Daily/Out",
-	"ErrorFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Daily/Err",
-	"WorkFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Daily/Work"
+	"InputFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/rawData/average_rtt",
+	"OutputFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/daily/output",
+	"ErrorFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/daily/error",
+	"WorkFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/daily/work"
 }

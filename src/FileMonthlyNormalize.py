@@ -95,9 +95,10 @@ if __name__ == '__main__':
     args = sys.argv[1:]
     console_helper = ConsoleHelper()
     options = console_helper.parse_args(args)
-#     print(options)
+    #print(options)
     configFilePath = options.get("ConfigFile")
-    if configFilePath is None :
+
+    if configFilePath is None:
         print("Does not have configFile parameter")
         sys.exit(2)
     instance = MonthlyNormalize(configFilePath)

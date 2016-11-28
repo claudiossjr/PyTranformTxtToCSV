@@ -1,13 +1,13 @@
 {
 	"Metrics":"average_rtt",
-	"InputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Country/Out",
-	"OutputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Database/Out",
-	"ErrorFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Database/Err",
-	"WorkFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Database/Work",
+	"InputFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/country/output",
+	"OutputFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/database/output",
+	"ErrorFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/database/error",
+	"WorkFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/database/work",
 	"ConfigDatabase":{
-		"Host":"192.168.0.10",
+		"Host":"localhost",
 		"UserName":"root",
-		"Password":"423123dinhU@",
+		"Password":"root",
 		"DBName":"PingERVis"
 	}
 }

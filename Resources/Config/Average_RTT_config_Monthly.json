@@ -1,9 +1,9 @@
 {
 	"Metrics":"average_rtt",
-	"InputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Daily/Out",
-	"OutputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Monthly/Out",
-	"ErrorFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Monthly/Err",
-	"WorkFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Monthly/Work",
+	"InputFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/daily/output",
+	"OutputFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/monthly/output",
+	"ErrorFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/monthly/error",
+	"WorkFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/monthly/work",
 	"YearBegin":1998,
 	"YearEnd":2016
 }

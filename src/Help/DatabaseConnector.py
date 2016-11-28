@@ -5,7 +5,7 @@ Created on 14 de nov de 2016
 '''
 
 import pymysql, sys, json
-from Help.OptionsLoad import ConsoleHelper 
+from Help.OptionsLoad import ConsoleHelper
 
 class MySQLDAO(object):
     '''
@@ -22,8 +22,8 @@ class MySQLDAO(object):
         passwd = DBConfig.get("Password")
         db = DBConfig.get("DBName")
         
-        self.con = pymysql.connect(host=host, unix_socket='/tmp/mysql.sock', user=userName, passwd=passwd, db= db)
-    
+        self.con = pymysql.connect(host=host, unix_socket='/Applications/MAMP/tmp/mysql/mysql.sock', user=userName, passwd=passwd, db= db)
+
     def get_node_id(self, name):
         cur = self.con.cursor()
         query = str.format("Select idNode from Node where Node_Name = '{0}'", name)
@@ -132,7 +132,7 @@ if __name__ == '__main__':
         jsonData += line
     
     configInfo = json.loads(jsonData)
-    
+
     
     DbConfig = configInfo["ConfigDatabase"]
     print(DbConfig)

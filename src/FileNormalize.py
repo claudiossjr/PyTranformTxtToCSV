@@ -20,42 +20,47 @@ class NormalizeFile(object):
         jsonData = ""
         for line in file:
             jsonData += line
-        
+
         self.configuration = json.loads(jsonData)
         
     def run (self):
+
         os.chdir(self.configuration["InputFolder"])
         metric = self.configuration["Metrics"]
         files_search_key = str.format("{0}-*.txt",metric)
+
         files_list = glob.glob(files_search_key)
-        
+
+
         for filePath in files_list:
+
             fileNameElems = str(filePath).replace(".txt", "").split("-")
-            
+
             #If file name is not on right format
             if len(fileNameElems) != 7:
                 old_file_path = os.path.join(self.configuration["InputFolder"], filePath)
                 err_file_path = os.path.join(self.configuration["ErrorFolder"], filePath)
                 os.rename(old_file_path, err_file_path)
                 continue
-                
+
             metrics = fileNameElems[0]
             
             datePosition = len(fileNameElems)-3
             year,month,day = fileNameElems[datePosition:]
             #print(str.format("{0} {1} {2} {3}", metrics, year, month, day))
-            
+
             old_file_path = os.path.join(self.configuration["InputFolder"], filePath)
             work_file_path = os.path.join(self.configuration["WorkFolder"], filePath)
             os.rename(old_file_path, work_file_path)
-            
+
             dictionary = self.work_on_file(filePath)
             
             outFile = str.format("{0}-{1}-{2}-{3}.txt", metrics, year, month, day)
             outFile = os.path.join(self.configuration["OutputFolder"], outFile)
-            
+
+            print(outFile)
             file_writer = open(outFile, "w")
-            
+
             for key in dictionary.keys():
                 list_values = dictionary[key]
                 sumer,count_elems = self.get_sum(list_values)
@@ -65,7 +70,8 @@ class NormalizeFile(object):
                 file_writer.write(str.format("{0},{1}\n", key, avr))
                 
             file_writer.close()
-            
+
+
     def get_sum(self, list_values):
         sum_value = -1
         count_elems = 0
@@ -129,7 +135,7 @@ class NormalizeFile(object):
         file_content.close()
         
         return full_content_dictionary
-            
+
 if __name__ == '__main__' :
     args = sys.argv[1:]
     console_helper = ConsoleHelper()
@@ -137,6 +143,5 @@ if __name__ == '__main__' :
     print(options)
     configFilePath = options["ConfigFile"]
     instance = NormalizeFile(configFilePath)
-    instance.run() 
-    
-    
+    instance.run()
+

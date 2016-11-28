@@ -1,8 +1,8 @@
 {
 	"Metrics":"average_rtt",
-	"InputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Monthly/Out",
-	"OutputFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Country/Out",
-	"ErrorFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Country/Err",
-	"WorkFolder":"F:/Projects/PyTranformTxtToCSV/Resources/Country/Work",
-	"NodeDetails":"F:/Projects/PyTranformTxtToCSV/Resources/NODE-DETAILS.csv"
+	"InputFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/monthly/output",
+	"OutputFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/country/output",
+	"ErrorFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/country/error",
+	"WorkFolder":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/data/country/work",
+	"NodeDetails":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/pipeline/PyTranformTxtToCSV/Resources/NODE-DETAILS.csv"
 }
