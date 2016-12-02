@@ -22,7 +22,7 @@ class MySQLDAO(object):
         passwd = DBConfig.get("Password")
         db = DBConfig.get("DBName")
         
-        self.con = pymysql.connect(host=host, unix_socket='/Applications/MAMP/tmp/mysql/mysql.sock', user=userName, passwd=passwd, db= db)
+        self.con = pymysql.connect(host=host, unix_socket='/Applications/MAMP/tmp/mysql/mysql.sock', user=userName, passwd=passwd, db=db)
 
     def get_node_id(self, name):
         cur = self.con.cursor()

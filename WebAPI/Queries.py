@@ -23,12 +23,13 @@ def queryManager(country, year_from, year_to, metric, human_index):
     queryHumanIndex = "SELECT hm.year, hm.value FROM HumanIndex hm where hm.CountryName = '{0}' and hm.HumanIndex = '{1}' and (hm.Year between {2} and {3}) "
     
     result_set_human = c.execute(str.format(queryHumanIndex, country, human_index, year_from, year_to))
-    
+    #result_set_human = c.execute(str.format(query, country, metric, year_from, year_to))
+
     for result in c:
         year, average = result
         average = float(average)
         if not(year in result_finalize.keys()):
-            result_finalize[year] = [average]
+            result_finalize[year] = [-1,average]
         else:
             list = result_finalize[year]
             list.append(average)

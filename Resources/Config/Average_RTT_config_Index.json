@@ -1,10 +1,10 @@
 {
 	"HumanIndex":"GDP",
-	"InputFile":"F:/Projects/PyTranformTxtToCSV/Resources/GDP.csv",
+	"InputFile":"/Users/joaolucasrulffdacosta/Documents/UrbanComputing/pipeline/PyTranformTxtToCSV/Resources/GDP.csv",
 	"ConfigDatabase":{
-		"Host":"192.168.1.102",
+		"Host":"localhost",
 		"UserName":"root",
-		"Password":"423123dinhU@",
+		"Password":"root",
 		"DBName":"PingERVis"
 	}
 }
