@@ -29,25 +29,33 @@ var chartMargin = {
 var width = w - chartMargin.left - chartMargin.right;
 var height = h - chartMargin.top - chartMargin.bottom;
 
-function request(country, metric, index){
+function request(country, metric, index, year_from, year_to){
+
+	console.log(year_from);
+	console.log(year_to);
 	
 	//console.log("http://localhost:8080/country?country="+country+"&year_from=1998&year_to=2015&metric="+metric+"&human_index="+index);
 	
 	
 	var ajaxRequest = new XMLHttpRequest();
-	ajaxRequest.open("GET", "http://localhost:8080/country?country="+country+"&year_from=1998&year_to=2015&metric="+metric+"&human_index="+index)
-	ajaxRequest.onload = function(){
-		rows = JSON.parse(ajaxRequest.responseText);
-	}
+	ajaxRequest.open("GET", "http://localhost:8080/country?country="+country+"&year_from="+year_from+"&year_to="+year_to+"&metric="+metric+"&human_index="+index);
+	
+	ajaxRequest.onreadystatechange = function () {
+        if(ajaxRequest.readyState === XMLHttpRequest.DONE && ajaxRequest.status === 200) {
+            rows = JSON.parse(ajaxRequest.responseText);
+
+            transformInArray();
+
+			if(dataArray.length != 0){
+				createChart(country, metric, index);
+			}
+			console.log(dataArray);
+		}
+    };
+
 	ajaxRequest.send();
 	
-	transformInArray();
-
-	if(dataArray.length != 0){
-		createChart();
-	}
 	
-	console.log(dataArray);
 	
 }
 
@@ -62,7 +70,7 @@ function transformInArray(){
 	}
 }
 
-function createChart(){
+function createChart(country, metric, index){
 	
 	var svg = d3.select("body").append("svg")
 				.attr("id", "chart")
@@ -139,7 +147,10 @@ function createChart(){
 			xAxisMetric: xAxisMetric,
 			yAxisMetric: yAxisMetric,
 			yAxisIndex: yAxisIndex
-		}
+		},
+		country: country,
+		metric: metric,
+		index: index
 	});
 
 
@@ -151,6 +162,10 @@ function createChart(){
 function plot(params){
 
 	//console.log("PARAMS", params.data);
+	//console.log(params.country);
+	//console.log(params.metric);
+	//console.log(params.index);
+
 	this.append("g")
 		.classed("x axis", true)
 		.attr("transform", "translate(0, " + height +")")
@@ -240,3 +255,4 @@ function plot(params){
 
 	
 }
+ 

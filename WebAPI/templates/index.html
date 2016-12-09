@@ -49,6 +49,7 @@ API Course, Lesson 1 -->
     }
 
 
+
     </style>
   </head>
 
@@ -79,10 +80,60 @@ API Course, Lesson 1 -->
                   <option value="gdp">GDP</option>
                 </select>
               </div>
-              <!--<div class="form-group">
-                <button type="submit" class="btn btn-default">Search Now</button>
-              </div>-->
-            </form>   
+
+              <div class="form-group">
+                <select name="type" id="yearFrom">
+                  <option value>From</option>
+                  <option value="1998">1998</option>
+                  <option value="1999">1999</option>
+                  <option value="2000">2000</option>
+                  <option value="2001">2001</option>
+                  <option value="2002">2002</option>
+                  <option value="2003">2003</option>
+                  <option value="2004">2004</option>
+                  <option value="2005">2005</option>
+                  <option value="2006">2006</option>
+                  <option value="2007">2007</option>
+                  <option value="2008">2008</option>
+                  <option value="2009">2009</option>
+                  <option value="2010">2010</option>
+                  <option value="2011">2011</option>
+                  <option value="2012">2012</option>
+                  <option value="2013">2013</option>
+                  <option value="2014">2014</option>
+                  <option value="2015">2015</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <select name="type" id="yearTo">
+                  <option value>To</option>
+                  <option value="1998">1998</option>
+                  <option value="1999">1999</option>
+                  <option value="2000">2000</option>
+                  <option value="2001">2001</option>
+                  <option value="2002">2002</option>
+                  <option value="2003">2003</option>
+                  <option value="2004">2004</option>
+                  <option value="2005">2005</option>
+                  <option value="2006">2006</option>
+                  <option value="2007">2007</option>
+                  <option value="2008">2008</option>
+                  <option value="2009">2009</option>
+                  <option value="2010">2010</option>
+                  <option value="2011">2011</option>
+                  <option value="2012">2012</option>
+                  <option value="2013">2013</option>
+                  <option value="2014">2014</option>
+                  <option value="2015">2015</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <button type="button" onclick="generateHeatmap()" class="btn btn-default">Generate Heatmap</button>
+              </div>
+
+           </form> 
           </div>
         </div>
       </div>
@@ -90,13 +141,34 @@ API Course, Lesson 1 -->
 
   <div id="map"></div>
   
+  <!--
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+  -->
+
   <script type="text/javascript" src="{{ url_for('static', filename='d3.min.js') }}"></script>
+
   <script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='chart.js') }}"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyDdyZKqw852jtBp9b5XUkPNgzvLNkJIkUg&v=3&callback=initMap"></script>
 
 
+  <!--<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyDdyZKqw852jtBp9b5XUkPNgzvLNkJIkUg&v=3&callback=initMap"></script>
+  -->
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyDdyZKqw852jtBp9b5XUkPNgzvLNkJIkUg&v=3"></script>
+
+   <script type="text/javascript" src="{{ url_for('static', filename='heatmap.min.js') }}"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='gmaps-heatmap.js') }}"></script>
   
+  <script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    initMap();
+  });
+  
+  </script>
 
  </body>
 </html>
